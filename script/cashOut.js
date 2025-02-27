@@ -25,7 +25,7 @@ document.getElementById("btn-cashout").addEventListener("click" , function(event
         //transaction handling
         const transactionContainer = document.getElementById("transaction-container");
         const div = document.createElement("div");
-        div.classList.add("bg-yellow-100" , "p-4" , "mb-2");
+        div.classList.add("bg-yellow-100" , "p-4" , "mt-5");
         div.innerHTML = `
             <h1 class=" font-bold" >Cashout Money</h1>
             <h3> amount: ${amount} </h3>
