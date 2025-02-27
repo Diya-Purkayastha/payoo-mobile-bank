@@ -8,9 +8,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-800">
-    <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200">
+    <section class="max-w-md min-h-screen mx-auto py-6 bg-gray-200 ">
         <header>
-            <nav class="flex justify-around items-center">
+            <nav class="flex justify-around items-center mt-5">
                 <img src="./assets/Group.png" class="w-16" alt="">
                 <div>
                     <h1 class="text-3xl font-bold text-black" >$ <span id="total-amount">4500</span> </h1>
@@ -20,11 +20,14 @@
             </nav>
         </header>
 
+        <!-- cards -->
         <section class="mt-10">
-            <h1 class="text-4xl text-black font-bold mb-2">🔥 Welcome to Payooo!</h1>
-            <p class="text-black">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+            <div class="p-3 ">
+              <h1 class="text-4xl text-black font-bold mb-2">🔥 Welcome to Payooo!</h1>
+              <p class="text-black">Enjoy easy and convenient financial services with us. Cashout charge is low and </p>
+            </div>
 
-            <div class="cards grid grid-cols-3 mt-14 gap-2 p-2">
+            <div class="cards grid grid-cols-3 mt-6 gap-2 p-3">
                 <div class="box border border-gray-500 p-4 text-center rounded-md cursor-pointer" id="add-money-box">
                     <img src="./assets/wallet1.png" alt="" class="w-8 mx-auto">
                     <h3 class="text-black">Add Money</h4>
@@ -33,7 +36,7 @@
                     <img src="./assets/send1.png" alt="" class="w-8 mx-auto">
                     <h3 class="text-black">Cashout</h4>
                 </div>
-                <div class="box border border-gray-500 p-4 text-center rounded-md">
+                <div class="box border border-gray-500 p-2 text-center rounded-md ">
                     <img src="./assets/money1.png" alt="" class="w-8 mx-auto">
                     <h3 class="text-black">Transfer Money</h4>
                 </div>
@@ -45,7 +48,7 @@
                     <img src="./assets/purse1.png" alt="" class="w-8 mx-auto">
                     <h3 class="text-black">Pay Bill</h4>
                 </div>
-                <div class="box border border-gray-500 p-4 text-center rounded-md">
+                <div class="box border border-gray-500 p-4 text-center rounded-md " id="transaction-box">
                     <img src="./assets/transaction1.png" alt="" class="w-8 mx-auto">
                     <h3 class="text-black">Transactions</h4>
                 </div>
@@ -53,8 +56,8 @@
         </section>
         
         <!-- add money -->
-        <section class="mt-5" id="add-money">
-            <h3>Add Money</h3>
+        <section class="mt-5 p-2" id="add-money">
+            <h3 class="font-bold text-black text-center text-2xl">Add Money</h3>
             <div class="">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                
@@ -62,7 +65,7 @@
                     <form class="card-body">
                       <div class="form-control">
                         <legend>Select</legend>
-                        <select class="select w-full max-w-xs">
+                        <select class="select w-full max-w-xs" id="allbank">
                             <option disabled selected>Select bank</option>
                             <option value="bkash">bkash</option>
                             <option value="Nogod">Nogod</option>
@@ -87,9 +90,7 @@
                                 </label>
                                 <input type="number" placeholder="amount" class="input input-bordered" id="acc-amount"  required />
                               </div>
-                            <label class="label">
-                          <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                          
                       </div>
                       <div class="form-control mt-6">
                         <button class="btn btn-primary" id="btn-add-money">Add Money</button>
@@ -100,8 +101,8 @@
               </div>
         </section>
         <!-- cash out -->
-        <section class="mt-5" id="Cashout">
-            <h3>Cash Out</h3>
+        <section class="mt-5 p-2" id="cashout">
+            <h3 class="font-bold text-black text-center text-2xl">Cash Out</h3>
             <div class="">
                 <div class="hero-content flex-col lg:flex-row-reverse">
                
@@ -125,9 +126,7 @@
                                 </label>
                                 <input type="number" placeholder="Enter amount to withdraw" class="input input-bordered" id="cashout-acc-amount"  required />
                               </div>
-                            <label class="label">
-                          <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                          
                       </div>
                       <div class="form-control mt-6">
                         <button class="btn btn-primary" id="btn-cashout">Cash Out </button>
@@ -137,9 +136,24 @@
                 </div>
               </div>
         </section>
+
+        <!-- transaction section -->
+         <section class="mt-5 p-2" id="transaction">
+            <h1 class="font-bold text-black text-center text-2xl">Transaction History</h1>
+            <div id="transaction-container">
+
+            </div>
+         </section>
+
+
     </section>
-  <script src="./script/addMoney.js"></script>
-  <script src="./script/toggle.js"></script>
-  <script src="./script/cashOut.js"></script>
+
+
+
+    <script src="./utilities/utilities.js"></script>
+    <script src="./script/addMoney.js"></script>
+    <script src="./utilities/toggle.js"></script>
+    <script src="./script/cashout.js"></script>
+    <script src="./script/transaction.js"></script>
 </body>
 </html>

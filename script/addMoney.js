@@ -1,29 +1,41 @@
 
-const addMoneyBtn = document.getElementById('btn-add-money').       addEventListener('click', function(event){
+
+document.getElementById('btn-add-money').addEventListener("click", function(event){
     event.preventDefault();
-    //input field amount
-    const addAmount = document.getElementById('acc-amount').value;
-    const convertedAddAmount = parseFloat(addAmount);
 
-    //4500 main balance
-    const totalAmount = document.getElementById('total-amount').innerText;
-    const convertedTotalAmount = parseInt(totalAmount);
+    const account = document.getElementById("acc-number").value;
 
-    //pin number
-    const accPin = document.getElementById('acc-pin').value;
-    const convertedPin= parseInt(accPin);
+    const amount = getInputValueById("acc-amount")
+    const pin = getInputValueById("acc-pin");
+    const mainAmount = getInnerTextById("total-amount");
 
-    if(addAmount && accPin){
-        if(convertedPin === 1234){
-            const sum = convertedAddAmount + convertedTotalAmount;
-            document.getElementById('total-amount').innerText = sum;
+    const selectBank = document.getElementById("allbank").value;
+    console.log(selectBank);
+
+    if(account.length === 11){
+        if(pin === 1234){
+            const sum = mainAmount + amount;
+            setInnerTextByIdandValue("total-amount" , sum)
+            
+            const transactionContainer = document.getElementById("transaction-container");
+
+            const div = document.createElement("div");
+            div.classList.add("bg-yellow-100" , "p-4" , "mb-2");
+            div.innerHTML = `
+                <h1 class=" font-bold" >Added Money</h1>
+                <h3> amount: ${amount} </h3>
+                <p> account number: ${account} </p>
+                <p>transaction id: </p>
+                
+            `
+        
+            transactionContainer.appendChild(div)
+
+
         }else{
-            alert("Invalid pin ");
+            alert("pin is not correct")
         }
     }else{
-        alert("Amount is not added")
+        alert("Acc no is not valid")
     }
-   
-
-   
 })
